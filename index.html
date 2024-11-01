@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gnomon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main screen1">
+        <h2>GNOMON</h2>
+        <p>Select your generator:</p>
+        <p><button class="toggle-screen2">Generator Imion</button></p>
+        <p><button class="toggle-screen3">Generator postaci</button></p>
+        <p><button class="toggle-screen4">Nic</button></p>
+        <p><button class="toggle-screen5">Nic</button></p>
+        <p><button class="toggle-screen6">Nic</button></p>
+    </div>
+    <div class="main screen2">
+        <button class="toggle-screen1">Wróć</button>
+        <p><button class="name-generator-toggle">Wygeneruj imię</button></p>
+        Twoje wygnerowane imię postaci to:
+        <p><div id="name-generator"></div></p>
+    </div>
+    <div class="main screen3">
+        <button class="toggle-screen1">Wróć</button>
+        <button class="toggle-screen3 hero-generator-toggle">Wygeneruj postac</button>
+        <div id="randomHero"></div>
+    </div>
+    <div class="main screen4">
+        <button class="toggle-screen1">Wróć</button>
+        <button>Wygeneruj imię</button>
+    </div>
+    <div class="main screen5">
+        <button class="toggle-screen1">Wróć</button>
+        <button>Wygeneruj imię</button>
+    </div>
+    <div class="main screen6">
+        <button class="toggle-screen1">Wróć</button>
+        <button>Wygeneruj imię</button>
+    </div>
+
+
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/heroGenerator.js"></script>
+</body>
+</html>

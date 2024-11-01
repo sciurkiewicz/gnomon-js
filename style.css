@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+body {
+    font-family: "Finger Paint", sans-serif;
+}
+
+.main {
+    text-align: center;
+    width: 100%;
+}
+
+button {
+    font-family: "Finger Paint", sans-serif;
+    background-image: url('./graphics/button.png'); /* Dodaje obrazek button.png jako tło */
+    background-size: 100% 100%;
+    padding: 15px;
+    color: black;
+    background-position: center;
+    background-repeat: no-repeat; /* Zapobiega powtarzaniu obrazka */
+    width: auto; /* Szerokość przycisku */
+    height: 50px; /* Wysokość przycisku */
+    border: none; /* Usuwa domyślną ramkę przycisku */
+    font-size: 16px; /* Rozmiar czcionki */
+    cursor: pointer; /* Zmienia kursor na rękę przy najechaniu */
+    text-align: center; /* Wyrównuje tekst w środku */
+}
+
+button:active {
+    background-image: url('./graphics/button-active.png'); /* Dodaje obrazek button.png jako tło */
+}

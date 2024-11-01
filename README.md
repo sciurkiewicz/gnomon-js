@@ -1,2 +1,2 @@
 # gnomon-js
-Engine for making JavaScript games.
+Handbook of Dungeon Master...
