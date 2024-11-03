@@ -12,7 +12,7 @@
         <p>Select your generator:</p>
         <p><button class="toggle-screen2">Generator Imion</button></p>
         <p><button class="toggle-screen3">Generator postaci</button></p>
-        <p><button class="toggle-screen4">Nic</button></p>
+        <p><button class="toggle-screen4">Generator artefaktów</button></p>
         <p><button class="toggle-screen5">Nic</button></p>
         <p><button class="toggle-screen6">Nic</button></p>
     </div>
@@ -24,12 +24,13 @@
     </div>
     <div class="main screen3">
         <button class="toggle-screen1">Wróć</button>
-        <button class="toggle-screen3 hero-generator-toggle">Wygeneruj postac</button>
+        <button class="hero-generator-toggle">Wygeneruj postac</button>
         <div id="randomHero"></div>
     </div>
     <div class="main screen4">
         <button class="toggle-screen1">Wróć</button>
-        <button>Wygeneruj imię</button>
+        <button class="item-generator-toggle">Wygeneruj Artefakt</button>
+        <div id="randomItem"></div>
     </div>
     <div class="main screen5">
         <button class="toggle-screen1">Wróć</button>
@@ -43,5 +44,6 @@
 
     <script type="module" src="./scripts/index.js"></script>
     <script type="module" src="./scripts/heroGenerator.js"></script>
+    <script type="module" src="./scripts/itemGenerator.js"></script>
 </body>
 </html>
