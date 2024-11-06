@@ -91,6 +91,8 @@ const bronie = [
     "Berdysz 2k6"
 ];
 const ekwipunek = [
+    "Ubranie podróżnika KP 9",            // 8 + 1
+    "Zwykłe ubranie KP 8",           // 8 + 0
     "Zbroja skórzana KP 10",         // 8 + 2
     "Zbroja ćwiekowana KP 11",       // 8 + 3
     "Kolczuga KP 13",                // 8 + 5
@@ -244,7 +246,7 @@ const pochodzenie = [
     "Urodził się w samotnej chacie pośrodku lasu, gdzie jego rodzina prowadziła spokojne, samowystarczalne życie z dala od innych ludzi. Rodzice nauczyli go wszystkiego, co potrzebne do przetrwania w dziczy – tropienia zwierzyny, rozpalania ognia i zbierania jadalnych roślin. Choć rzadko widywał obcych, świat za lasem zawsze budził jego ciekawość.",
     "Dorastał na farmie, pośród pól i łąk, gdzie codzienne obowiązki od najmłodszych lat były częścią życia. Jego rodzina zajmowała się hodowlą zwierząt i uprawą roli, a on często pomagał w stajniach lub na polu. Wpojono mu, że ciężka praca i szacunek do ziemi są najważniejszymi wartościami, co uczyniło go człowiekiem skromnym i oddanym pracy.",
     "Pochodzi z tajemniczej wyspy otoczonej legendami, gdzie magia była częścią codzienności. Jego przodkowie należeli do zakonu magów, którzy strzegli starożytnych sekretów. Od najmłodszych lat uczył się o magii i historii swego ludu, lecz obowiązki związane z jego pochodzeniem zawsze wydawały mu się nieco przytłaczające.",
-    "Urodził się na pustyni, w surowym klimacie, gdzie woda jest cenniejsza niż złoto. Jego rodzina należała do koczowniczego plemienia, które żyło z wypasu wielbłądów i handlu z karawanami. Jego dzieciństwo było pełne wyzwań, a codzienność wymagała hartu ducha i umiejętności przetrwania w ekstremalnych warunkach."
+    "Urodził się na stepie, w surowym klimacie. Jego rodzina należała do koczowniczego plemienia, które żyło z wypasu wielbłądów i handlu z karawanami. Jego dzieciństwo było pełne wyzwań, a codzienność wymagała hartu ducha i umiejętności przetrwania w ekstremalnych warunkach."
 ];
 
 const dorosłeZycie = [
@@ -257,7 +259,7 @@ const dorosłeZycie = [
     "Obecnie mieszka w lesie, prowadząc życie zgodne z naturą. Jest znanym zielarzem i myśliwym, który pomaga lokalnej społeczności w trudnych czasach. Jego umiejętności przetrwania są cenione przez tych, którzy znają go i ufają jego wiedzy.",
     "Został farmerem, który odziedziczył rodzinną farmę. Pracuje ciężko, by zapewnić utrzymanie rodzinie. Jego życie wypełnione jest radością z prostych rzeczy, a ciężka praca przynosi mu satysfakcję i spełnienie.",
     "Obecnie jest członkiem zakonu magów, gdzie studiuje starożytne tajemnice magii. Choć obciążają go obowiązki, jego pasja do magii i odkrywania nowych tajemnic sprawia, że czuje się spełniony. Jego przodkowie są źródłem dumy, a on stara się nie zawieść ich dziedzictwa.",
-    "Został przewodnikiem po pustyni, pomagając podróżnikom w dotarciu do oaz i bezpiecznych miejsc. Jego znajomość terenu i umiejętności przetrwania sprawiają, że jest niezastąpionym towarzyszem dla każdego, kto wyrusza w niebezpieczną podróż.",
+    "Został przewodnikiem po niebezpiecznych dzikich ostępach, pomagając podróżnikom w dotarciu do oaz i bezpiecznych miejsc. Jego znajomość terenu i umiejętności przetrwania sprawiają, że jest niezastąpionym towarzyszem dla każdego, kto wyrusza w niebezpieczną podróż.",
     "Obecnie pracuje jako wojownik w armii, broniąc swojego królestwa przed zagrożeniami. Jego umiejętności bojowe i determinacja sprawiają, że jest jednym z najbardziej cenionych żołnierzy.",
     "Został badaczem, który podróżuje po świecie, poszukując starożytnych ruin i zapomnianych tajemnic. Jego pasja do odkryć prowadzi go w niebezpieczne miejsca, gdzie stawia czoła zagrożeniom.",
     "Obecnie jest uzdrowicielem, który stosuje swoje umiejętności do pomocy potrzebującym. Jego wiedza o ziołach i medycynie naturalnej czyni go cenionym członkiem społeczności.",
@@ -331,10 +333,27 @@ function generujIWyswietlPostac() {
         <p><strong>Ekwipunek:</strong> ${postac.ekwipunek}</p>
         <p><strong>Przedmiot z ekwipunku:</strong> ${postac.przedmiotyWartosciowe}</p>
         <p>${postac.pochodzenie} ${postac.dorosłeZycie} ${postac.przyszłePlany}</p>
+        <button id="downloadJson">Pobierz statystyki jako JSON</button>
     `;
+
+    // Dodaj listener do przycisku pobierania JSON po dodaniu przycisku do DOM
+    document.getElementById("downloadJson").addEventListener("click", function() {
+        pobierzJSON(postac);
+    });
 }
 
+// Funkcja pobierająca statystyki postaci jako plik JSON
+function pobierzJSON(postac) {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(postac, null, 2));
+    const downloadAnchor = document.createElement("a");
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", "statystyki_postaci.json");
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    document.body.removeChild(downloadAnchor);
+}
 
+// Event listener do przycisku generowania postaci
 document.querySelector(".hero-generator-toggle").addEventListener("click", function() {
-    generujIWyswietlPostac()
-  });
+    generujIWyswietlPostac();
+});

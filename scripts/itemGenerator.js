@@ -13,7 +13,7 @@ const nouns = [
     "Kosa", "Rękawice", "Buty", "Płaszcz", "Bransoleta",
     "Sztylet", "Kostur", "Rękojeść", "Łuk", "Korona",
     "Księga", "Tunika", "Pas", "Kolczuga", "Maska",
-    "Kostur", "Pancerz Płytowy", ""
+    "Kostur", "Pancerz Płytowy",
 ];
 
 const rarities = [
@@ -101,6 +101,51 @@ function generateAttributes(name, type) {
         attributes.push("szansa na efekt strachu");
         attributes.push("zwiększona skuteczność przeciwko nieumarłym");
         attributes.push("odporność na strach");
+    }
+    if (name.includes("Cichy")) {
+        attributes.push("zwiększona szansa na unik");
+        attributes.push("cichsze poruszanie się");
+        attributes.push("bonus do ataków z ukrycia");
+    }
+    if (name.includes("Potężny")) {
+        attributes.push("zwiększenie obrażeń o 10%");
+        attributes.push("zwiększona siła fizyczna");
+        attributes.push("zmniejszona szansa na ogłuszenie");
+    }
+    if (name.includes("Prastary")) {
+        attributes.push("odporność na czasowe klątwy");
+        attributes.push("zwiększona moc zaklęć o 5%");
+        attributes.push("odporność na mroczne obrażenia");
+    }
+    if (name.includes("Srebrny")) {
+        attributes.push("obrażenia od srebra +5");
+        attributes.push("zwiększona skuteczność przeciwko nieumarłym");
+        attributes.push("odporność na korozję");
+    }
+    if (name.includes("Żelazny")) {
+        attributes.push("zwiększona odporność na ogłuszenie");
+        attributes.push("zwiększona wytrzymałość pancerza");
+        attributes.push("odporność na trucizny +5");
+    }
+    if (name.includes("Cierpiący")) {
+        attributes.push("bonus do obrażeń przy niskim zdrowiu");
+        attributes.push("drenowanie życia przeciwnika");
+        attributes.push("szansa na wywołanie efektu krwawienia");
+    }
+    if (name.includes("Gniewny")) {
+        attributes.push("zwiększona siła przy niskim zdrowiu");
+        attributes.push("obrażenia od ognia +3");
+        attributes.push("szansa na wywołanie efektu strachu");
+    }
+    if (name.includes("Zakazany")) {
+        attributes.push("bonus do mocy kosztem zdrowia");
+        attributes.push("szansa na wywołanie losowej klątwy");
+        attributes.push("zwiększona moc zaklęć kosztem wytrzymałości");
+    }
+    if (name.includes("Nawiedzony")) {
+        attributes.push("szansa na przyzwanie duchów");
+        attributes.push("zwiększona skuteczność przeciwko żywym przeciwnikom");
+        attributes.push("odporność na efekty strachu");
     }
     return attributes;
 }
